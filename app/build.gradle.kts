@@ -75,7 +75,9 @@ dependencies {
 
     // DI
     implementation(libs.com.google.dagger.hilt.android)
+    implementation(libs.javapoet)
     kapt(libs.com.google.dagger.hilt.compiler)
+
 
     // hilt-navigation-compose
     implementation(libs.androidx.hilt.navigation.compose)
@@ -100,4 +102,7 @@ dependencies {
 }
 kapt {
     correctErrorTypes = true
+}
+hilt {
+    enableAggregatingTask = false
 }
