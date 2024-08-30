@@ -1,6 +1,6 @@
 package com.mostafa.paymobtask.core.data.api.interceptors
 
-import com.Aqua_waterfliter.technician_app.jobOrderDetails.domain.model.NetworkUnavailableException
+import com.mostafa.paymobtask.core.domain.NetworkUnavailableException
 import com.mostafa.paymobtask.core.utils.ConnectionManager
 import okhttp3.Interceptor
 import okhttp3.Response

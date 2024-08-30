@@ -1,4 +1,4 @@
-package com.Aqua_waterfliter.technician_app.jobOrderDetails.domain.model
+package com.mostafa.paymobtask.core.domain
 
 import java.io.IOException
 

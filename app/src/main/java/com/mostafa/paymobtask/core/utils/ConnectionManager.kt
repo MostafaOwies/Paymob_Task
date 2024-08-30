@@ -2,6 +2,7 @@ package com.mostafa.paymobtask.core.utils
 
 import android.content.Context
 import android.net.*
+import android.os.Build
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
@@ -36,7 +37,24 @@ class ConnectionManager @Inject constructor(@ApplicationContext private val cont
             }
         }
 
-        val connectivityManager = context.getSystemService(ConnectivityManager::class.java) as ConnectivityManager
-        connectivityManager.requestNetwork(networkRequest, networkCallback)
+        // Use the appropriate method to get ConnectivityManager based on API level
+        val connectivityManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            context.getSystemService(ConnectivityManager::class.java)
+        } else {
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            // For API level 24 and above (Android 7.0+)
+            connectivityManager.registerDefaultNetworkCallback(networkCallback)
+        } else {
+            // For API level 21 to 23 (Android 5.0 to 6.0)
+            try {
+                connectivityManager.requestNetwork(networkRequest, networkCallback)
+            } catch (e: SecurityException) {
+                // Handle potential SecurityException if it occurs
+                println("Security exception: ${e.message}")
+            }
+        }
     }
 }
