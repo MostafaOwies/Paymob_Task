@@ -1,4 +1,4 @@
-package com.mostafa.paymobtask.ui.theme
+package com.mostafa.paymobtask.core.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
