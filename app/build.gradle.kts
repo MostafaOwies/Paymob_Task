@@ -1,6 +1,8 @@
 plugins {
+    id("org.jetbrains.kotlin.kapt") // Apply the kapt plugin in Kotlin DSL
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.com.google.dagger.hilt.android)
 }
 
 android {
@@ -47,6 +49,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
 }
 
 dependencies {
@@ -66,4 +69,35 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //Navigation
+    implementation(libs.androidx.navigation.compose)
+
+    // DI
+    implementation(libs.com.google.dagger.hilt.android)
+    kapt(libs.com.google.dagger.hilt.compiler)
+
+    // hilt-navigation-compose
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // Network
+    implementation(libs.com.squareup.retrofit2.retrofit)
+    implementation(libs.com.squareup.retrofit2.converter.moshi)
+    implementation(libs.com.squareup.okhttp3.okhttp)
+    implementation(libs.com.squareup.okhttp3.logging.interceptor)
+    implementation(libs.com.squareup.moshi.kotlin)
+    kapt(libs.com.squareup.moshi.kotlin.codegen)
+
+    // Timber logger
+    implementation(libs.com.jakewharton.timber)
+
+    // accompanist
+    implementation(libs.com.google.accompanist.permissions)
+    implementation(libs.com.google.accompanist.navigation.animation)
+
+    //coroutines
+    implementation(libs.org.jetbrains.kotlinx.coroutines.play.services)
+}
+kapt {
+    correctErrorTypes = true
 }

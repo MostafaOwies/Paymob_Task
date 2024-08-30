@@ -8,6 +8,16 @@ espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
 composeBom = "2024.04.01"
+com-google-dagger-hilt-android = "2.52"
+androidx-navigation = "2.7.7"
+com-google-dagger = "2.49"
+org-jetbrains-kotlinx = "1.7.2"
+androidx-hilt = "1.2.0"
+com-squareup-retrofit2 = "2.9.0"
+com-squareup-okhttp3 = "3.14.9"
+com-squareup-moshi = "1.15.0"
+com-jakewharton-timber = "5.0.1"
+com-google-accompanist = "0.31.5-beta"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -24,8 +34,24 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
+com-google-dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "com-google-dagger" }
+com-google-dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "com-google-dagger" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "androidx-hilt" }
+com-squareup-retrofit2-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "com-squareup-retrofit2" }
+com-squareup-retrofit2-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "com-squareup-retrofit2" }
+com-squareup-okhttp3-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "com-squareup-okhttp3" }
+com-squareup-okhttp3-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "com-squareup-okhttp3" }
+com-squareup-moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "com-squareup-moshi" }
+com-squareup-moshi-kotlin-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "com-squareup-moshi" }
+com-jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref = "com-jakewharton-timber" }
+com-google-accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "com-google-accompanist" }
+com-google-accompanist-navigation-animation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "com-google-accompanist" }
+org-jetbrains-kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "org-jetbrains-kotlinx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+com-google-dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "com-google-dagger-hilt-android" }
+
 
