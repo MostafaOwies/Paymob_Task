@@ -1,4 +1,4 @@
-package com.mostafa.paymobtask.movieList.presentation
+package com.mostafa.paymobtask.movieDetails.presentaion
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,7 +7,7 @@ import com.mostafa.paymobtask.core.domain.NetworkException
 import com.mostafa.paymobtask.core.domain.NetworkUnavailableException
 import com.mostafa.paymobtask.core.utils.Logger
 import com.mostafa.paymobtask.core.utils.createExceptionHandler
-import com.mostafa.paymobtask.movieList.domain.GetMovieList
+import com.mostafa.paymobtask.movieDetails.domain.GetMovieDetails
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,33 +17,33 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MovieListViewModel @Inject constructor(
-    private val getMovieList: GetMovieList,
+class MovieDetailsViewModel @Inject constructor(
+    private val getMovieDetails: GetMovieDetails,
 ) : ViewModel() {
-    private val _movieListState = MutableStateFlow(MovieListState())
-    val movieListState: StateFlow<MovieListState> = _movieListState.asStateFlow()
+    private val _movieDetailsState = MutableStateFlow(MovieDetailsState())
+    val movieDetailsState: StateFlow<MovieDetailsState> = _movieDetailsState.asStateFlow()
 
-    fun onEvent(event: MovieListEvent) {
+    fun onEvent(event: MovieDetailsEvent) {
         when (event) {
-            is MovieListEvent.LoadMovieList -> loadMovieList()
+            is MovieDetailsEvent.LoadMovieDetails -> loadMovieDetails(event.movieId)
         }
     }
 
-    private fun loadMovieList() {
-        _movieListState.update {
+    private fun loadMovieDetails(movieId: String) {
+        _movieDetailsState.update {
             it.copy(
                 isLoading = true,
-                movieList = null,
+                movieDetails = null,
             )
         }
-        val errorMessage = "Failed to get Movie List"
+        val errorMessage = "Failed to get Movie Details"
         val exceptionHandler = viewModelScope.createExceptionHandler(errorMessage) { onFailure(it) }
         viewModelScope.launch(exceptionHandler) {
-            val response = getMovieList()
-            _movieListState.update {
+            val response = getMovieDetails(movieId)
+            _movieDetailsState.update {
                 it.copy(
                     isLoading = false,
-                    movieList = response,
+                    movieDetails = response,
                 )
             }
         }
@@ -53,14 +53,14 @@ class MovieListViewModel @Inject constructor(
     private fun onFailure(failure: Throwable) {
         when (failure) {
             is NetworkException -> {
-                Logger.i("Movie List Failed: ${failure.code} ")
-                _movieListState.update {
+                Logger.i("Movie Details Failed: ${failure.code} ")
+                _movieDetailsState.update {
                     it.copy(isLoading = false, failure = Event(failure))
                 }
             }
 
             is NetworkUnavailableException -> {
-                _movieListState.update {
+                _movieDetailsState.update {
                     it.copy(isLoading = false, failure = Event(failure))
                 }
             }

@@ -1,5 +1,6 @@
 package com.mostafa.paymobtask.core.di
 
+import com.mostafa.paymobtask.core.data.api.MovieDetailsApi
 import com.mostafa.paymobtask.core.data.api.MovieListApi
 import com.mostafa.paymobtask.core.data.api.interceptors.LoggingInterceptor
 import com.mostafa.paymobtask.core.utils.Constants
@@ -59,5 +60,13 @@ object ApiModule {
         return builder
             .build()
             .create(MovieListApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieDetailsApi(builder: Retrofit.Builder): MovieDetailsApi {
+        return builder
+            .build()
+            .create(MovieDetailsApi::class.java)
     }
 }
