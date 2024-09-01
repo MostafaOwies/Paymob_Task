@@ -20,6 +20,7 @@ com-jakewharton-timber = "5.0.1"
 com-google-accompanist = "0.31.5-beta"
 javapoet = "1.13.0"
 firebaseCrashlyticsKtx = "19.0.3"
+coil = "2.2.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -52,6 +53,8 @@ com-google-accompanist-navigation-animation = { module = "com.google.accompanist
 org-jetbrains-kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "org-jetbrains-kotlinx" }
 javapoet = { module = "com.squareup:javapoet", version.ref = "javapoet" }
 firebase-crashlytics-ktx = { group = "com.google.firebase", name = "firebase-crashlytics-ktx", version.ref = "firebaseCrashlyticsKtx" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+
 
 
 [plugins]

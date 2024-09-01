@@ -16,4 +16,6 @@ data class MovieListResult(
     val overview: String,
     val poster: String,
     val releaseDate: String,
+    val rating: Double,
+    val voteCount: Int,
 )

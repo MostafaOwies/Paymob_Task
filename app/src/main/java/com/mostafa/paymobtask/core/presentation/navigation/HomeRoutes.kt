@@ -5,7 +5,6 @@ import com.mostafa.paymobtask.R
 
 object RootGraph {
     const val HOME_GRAPH = "home_graph"
-    const val MOVIE_DETAILS = "movie_details"
 }
 
 enum class HomeRoutes(val route: String, @StringRes val title: Int, val icon: Int? = null) {
@@ -13,8 +12,9 @@ enum class HomeRoutes(val route: String, @StringRes val title: Int, val icon: In
         route = MOVIE, title = R.string.movieList
     ),
     MovieDetailsScreen(
-        route = RootGraph.MOVIE_DETAILS, title = R.string.movieDetails
+        route = MOVIE_DETAILS, title = R.string.movieDetails
     )
 }
 
-const val MOVIE = "movie"
+const val MOVIE = "movie_list"
+const val MOVIE_DETAILS = "movie_details"

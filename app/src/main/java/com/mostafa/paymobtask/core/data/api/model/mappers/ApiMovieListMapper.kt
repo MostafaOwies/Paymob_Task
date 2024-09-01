@@ -29,6 +29,8 @@ class ApiMovieListMapper @Inject constructor() :
             overview = apiMovieListResult.overview.orEmpty(),
             poster = apiMovieListResult.poster.orEmpty(),
             releaseDate = apiMovieListResult.releaseDate.orEmpty(),
+            rating = apiMovieListResult.rating ?: 0.0,
+            voteCount = apiMovieListResult.voteCount ?: 0,
         )
     }
 }

@@ -20,4 +20,6 @@ data class ApiMovieListResult(
     @field:Json(name = "overview") val overview: String?,
     @field:Json(name = "poster_path") val poster: String?,
     @field:Json(name = "release_date") val releaseDate: String?,
+    @field:Json(name = "vote_average") val rating: Double?,
+    @field:Json(name = "vote_count") val voteCount: Int?,
 )

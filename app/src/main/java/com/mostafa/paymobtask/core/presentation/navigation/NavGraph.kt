@@ -1,12 +1,11 @@
 package com.mostafa.paymobtask.core.presentation.navigation
 
-import android.provider.DocumentsContract.Root
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
+import com.mostafa.paymobtask.movieDetails.MovieDetailsScreen
 import com.mostafa.paymobtask.movieList.presentation.MovieListScreen
 
 
@@ -15,15 +14,20 @@ fun NavGraph(
     modifier: Modifier = Modifier,
     navController: NavHostController,
 ) {
-
     NavHost(
         modifier = modifier,
         navController = navController,
         route = RootGraph.HOME_GRAPH,
-        startDestination =MOVIE
+        startDestination = HomeRoutes.MovieListScreen.route
     ) {
         composable(route = HomeRoutes.MovieListScreen.route) {
-            MovieListScreen()
+            MovieListScreen(
+                navController = navController
+            )
+        }
+
+        composable(route = HomeRoutes.MovieDetailsScreen.route) {
+            MovieDetailsScreen()
         }
     }
 }

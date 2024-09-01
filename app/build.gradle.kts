@@ -106,6 +106,9 @@ dependencies {
 
     //coroutines
     implementation(libs.org.jetbrains.kotlinx.coroutines.play.services)
+
+    //coil
+    implementation(libs.coil.compose)
 }
 kapt {
     correctErrorTypes = true
