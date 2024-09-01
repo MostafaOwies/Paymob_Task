@@ -1,5 +1,6 @@
 package com.mostafa.paymobtask.core.di
 
+import com.mostafa.paymobtask.core.data.api.MovieListApi
 import com.mostafa.paymobtask.core.data.api.interceptors.LoggingInterceptor
 import com.mostafa.paymobtask.core.utils.Constants
 import com.mostafa.paymobtask.core.data.api.interceptors.NetworkStatusInterceptor
@@ -12,6 +13,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -49,5 +51,13 @@ object ApiModule {
         val interceptor = HttpLoggingInterceptor(loggingInterceptor)
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         return interceptor
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieListApi(builder: Retrofit.Builder): MovieListApi {
+        return builder
+            .build()
+            .create(MovieListApi::class.java)
     }
 }
