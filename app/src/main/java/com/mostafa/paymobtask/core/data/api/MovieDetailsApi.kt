@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface MovieDetailsApi {
     @GET(Constants.MOVIE_DETAILS)
     suspend fun getMovieDetails(
-        @Path("movie_id") movieId: String,
+        @Path("movie_id") movieId: String?,
         @Query("api_key") apiKey: String,
     ): ApiMovieDetails
 }

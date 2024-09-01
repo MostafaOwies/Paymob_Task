@@ -12,7 +12,7 @@ enum class HomeRoutes(val route: String, @StringRes val title: Int, val icon: In
         route = MOVIE, title = R.string.movieList
     ),
     MovieDetailsScreen(
-        route = MOVIE_DETAILS, title = R.string.movieDetails
+        route = "${MOVIE_DETAILS}/{id}", title = R.string.movieDetails
     )
 }
 

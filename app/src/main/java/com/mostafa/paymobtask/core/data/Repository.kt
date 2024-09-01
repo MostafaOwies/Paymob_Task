@@ -29,7 +29,7 @@ class Repository @Inject constructor(
     }
 
     override suspend fun getMovieDetails(
-        movieId: String,
+        movieId: String?,
     ): MovieDetails {
         try {
             return apiMovieDetailsMapper.mapToDomain(

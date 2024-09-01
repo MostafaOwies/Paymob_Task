@@ -29,7 +29,7 @@ class MovieDetailsViewModel @Inject constructor(
         }
     }
 
-    private fun loadMovieDetails(movieId: String) {
+    private fun loadMovieDetails(movieId: String?) {
         _movieDetailsState.update {
             it.copy(
                 isLoading = true,

@@ -8,6 +8,6 @@ interface IRepository {
 
     suspend fun getMovieList(): MovieList
     suspend fun getMovieDetails(
-        movieId: String,
+        movieId: String?,
     ): MovieDetails
 }

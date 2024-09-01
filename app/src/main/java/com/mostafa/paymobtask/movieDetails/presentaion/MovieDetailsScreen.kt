@@ -8,12 +8,14 @@ import com.mostafa.paymobtask.core.utils.ComposableLifecycle
 import com.mostafa.paymobtask.core.utils.Logger
 
 @Composable
-fun MovieDetailsScreen() {
+fun MovieDetailsScreen(
+    movieId: String?,
+) {
 
     val viewModel = hiltViewModel<MovieDetailsViewModel>()
     ComposableLifecycle { _, event ->
         if (event == Lifecycle.Event.ON_CREATE) {
-            viewModel.onEvent(MovieDetailsEvent.LoadMovieDetails("278"))
+            viewModel.onEvent(MovieDetailsEvent.LoadMovieDetails(movieId))
         }
     }
 

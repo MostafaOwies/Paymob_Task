@@ -52,7 +52,7 @@ fun MovieListScreen(
                     MovieCard(
                         movie = it,
                         onMovieClick = {
-                            navController.navigate(MOVIE_DETAILS)
+                            navController.navigate("${MOVIE_DETAILS}/${it.id}")
                         }
                     )
                 }

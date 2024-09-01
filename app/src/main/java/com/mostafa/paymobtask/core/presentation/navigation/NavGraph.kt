@@ -3,8 +3,10 @@ package com.mostafa.paymobtask.core.presentation.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.mostafa.paymobtask.movieDetails.presentaion.MovieDetailsScreen
 import com.mostafa.paymobtask.movieList.presentation.MovieListScreen
 
@@ -26,8 +28,17 @@ fun NavGraph(
             )
         }
 
-        composable(route = HomeRoutes.MovieDetailsScreen.route) {
-            MovieDetailsScreen()
+        composable(
+            route = HomeRoutes.MovieDetailsScreen.route,
+            arguments = listOf(
+                navArgument("id") {
+                    type = NavType.StringType
+                }
+            )
+        ) { backEntry ->
+            MovieDetailsScreen(
+                movieId = backEntry.arguments?.getString("id")
+            )
         }
     }
 }
