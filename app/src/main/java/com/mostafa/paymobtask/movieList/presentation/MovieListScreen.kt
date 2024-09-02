@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
+import com.mostafa.paymobtask.core.presentation.HomeAnimatedShimmer
 import com.mostafa.paymobtask.core.presentation.navigation.MOVIE_DETAILS
 import com.mostafa.paymobtask.core.utils.ComposableLifecycle
 import com.mostafa.paymobtask.core.utils.Logger
@@ -40,21 +41,23 @@ fun MovieListScreen(
             .fillMaxSize()
             .padding(top = 16.dp, bottom = 16.dp)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-        ) {
-        }
-
-        LazyColumn {
-            movieList?.let { item ->
-                items(item) {
-                    MovieCard(
-                        movie = it,
-                        onMovieClick = {
-                            navController.navigate("${MOVIE_DETAILS}/${it.id}")
+        HomeAnimatedShimmer(showShimmer = state.isLoading)
+        if (!state.isLoading) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+            ) {
+                LazyColumn {
+                    movieList?.let { item ->
+                        items(item) {
+                            MovieCard(
+                                movie = it,
+                                onMovieClick = {
+                                    navController.navigate("${MOVIE_DETAILS}/${it.id}")
+                                }
+                            )
                         }
-                    )
+                    }
                 }
             }
         }
