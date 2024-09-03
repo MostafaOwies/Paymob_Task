@@ -10,15 +10,17 @@ activityCompose = "1.9.1"
 composeBom = "2024.04.01"
 com-google-dagger-hilt-android = "2.52"
 androidx-navigation = "2.7.7"
-com-google-dagger = "2.48"
-org-jetbrains-kotlinx = "1.7.2"
+com-google-dagger = "2.49"
+org-jetbrains-kotlinx = "1.7.3"
 androidx-hilt = "1.2.0"
 com-squareup-retrofit2 = "2.9.0"
 com-squareup-okhttp3 = "3.14.9"
-com-squareup-moshi = "1.13.0"
+com-squareup-moshi = "1.15.0"
 com-jakewharton-timber = "5.0.1"
 com-google-accompanist = "0.31.5-beta"
 javapoet = "1.13.0"
+firebaseCrashlyticsKtx = "19.0.3"
+coil = "2.2.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -49,7 +51,10 @@ com-jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref
 com-google-accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "com-google-accompanist" }
 com-google-accompanist-navigation-animation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "com-google-accompanist" }
 org-jetbrains-kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "org-jetbrains-kotlinx" }
-javapoet = { module = "com.squareup:javapoet", version.ref = "javapoet" } # Define JavaPoet library
+javapoet = { module = "com.squareup:javapoet", version.ref = "javapoet" }
+firebase-crashlytics-ktx = { group = "com.google.firebase", name = "firebase-crashlytics-ktx", version.ref = "firebaseCrashlyticsKtx" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+
 
 
 [plugins]
